@@ -1,0 +1,25 @@
+#define ir 8
+#define led 7
+
+void setup() 
+{
+  Serial.begin(9600);
+  pinMode(ir, INPUT);
+  pinMode(led, OUTPUT);
+}
+
+void loop() 
+{
+  int detection = digitalRead(ir);
+  if (detection == LOW) 
+  {
+    Serial.print("There is an obstacle!\n");
+    digitalWrite(led, HIGH);
+  }
+  else 
+  {
+    Serial.print("No obstacle!\n");
+    digitalWrite(led, LOW);
+  }
+  delay(500);    // in ms
+}
